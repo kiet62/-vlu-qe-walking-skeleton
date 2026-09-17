@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+</head>
+<body>
+
+    <h2>Form đăng nhập</h2>
+
+    <form id="loginForm">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" required>
+
+        <br><br>
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" required>
+
+        <br><br>
+
+        <button type="submit">Đăng nhập</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script src="login.js"></script>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (login(username, password)) {
+                document.getElementById("message").innerText = "Đăng nhập thành công!";
+            } else {
+                document.getElementById("message").innerText = "Sai tài khoản hoặc mật khẩu!";
+            }
+        });
+    </script>
+
+</body>
+</html>
